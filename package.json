@@ -1,7 +1,7 @@
 {
-  "name": "@justinribeiro/lite-youtube",
-  "description": "A web component that loads YouTube embed iframes faster. ShadowDom based version of Paul Irish' concept.",
-  "author": "Justin Ribeiro <justin@justinribeiro.com>",
+  "name": "@stereoweb/lite-youtube-stereo",
+  "description": "A web component that loads Vimeo embed iframes faster. ShadowDom based version of Paul Irish' concept.",
+  "author": "Chuck <charles@stereo.ca>",
   "repository": {
     "type": "git",
     "url": "git@github.com:stereoweb/lite-youtube-stereo"
