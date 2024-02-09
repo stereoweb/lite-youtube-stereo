@@ -51,6 +51,14 @@ export class LiteYTEmbed extends HTMLElement {
     this.setAttribute('videoid', id);
   }
 
+  get customCss(): string {
+    return this.getAttribute('customcss') || '';
+  }
+
+  set customCss(css: string) {
+    this.setAttribute('customcss', css);
+  }
+
   get playlistId(): string {
     return encodeURIComponent(this.getAttribute('playlistid') || '');
   }
@@ -111,6 +119,7 @@ export class LiteYTEmbed extends HTMLElement {
    */
   private setupDom(): void {
     const shadowDom = this.attachShadow({ mode: 'open' });
+    const css = this.customCss;
     let nonce = '';
     if (window.liteYouTubeNonce) {
       nonce = `nonce="${window.liteYouTubeNonce}"`;
@@ -192,6 +201,7 @@ export class LiteYTEmbed extends HTMLElement {
         #frame.activated > #playButton {
           display: none;
         }
+        ${css}
       </style>
       <div id="frame">
         <picture>
