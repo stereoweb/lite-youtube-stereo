@@ -4,7 +4,7 @@
   "author": "Justin Ribeiro <justin@justinribeiro.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:justinribeiro/lite-youtube.git"
+    "url": "git@github.com:stereoweb/lite-youtube-stereo"
   },
   "scripts": {
     "build": "tsc",
