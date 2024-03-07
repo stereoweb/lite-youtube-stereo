@@ -215,7 +215,6 @@ export class LiteYTEmbed extends HTMLElement {
       </style>
       <div id="frame">
         <picture>
-          <source id="webpPlaceholder" type="image/webp">
           <source id="jpegPlaceholder" type="image/jpeg">
           <img id="fallbackPlaceholder" referrerpolicy="origin" loading="lazy">
         </picture>
@@ -318,8 +317,14 @@ export class LiteYTEmbed extends HTMLElement {
    * Setup the placeholder image for the component
    */
   private initImagePlaceholder(): void {
+    let posterUrlJpeg = "";
+    if(this.poster){
+        posterUrlJpeg = `${this.poster}`;
+    }else{
+        posterUrlJpeg = `https://i.ytimg.com/vi/${this.videoId}/${this.posterQuality}.jpg`;
+    }
     // const posterUrlWebp = `https://i.ytimg.com/vi_webp/${this.videoId}/${this.posterQuality}.webp`;
-    const posterUrlJpeg = `${this.poster}`;
+    // const posterUrlJpeg = `${this.poster}`;
     this.domRefImg.fallback.loading = this.posterLoading;
     // this.domRefImg.webp.srcset = posterUrlWebp;
     this.domRefImg.jpeg.srcset = posterUrlJpeg;
