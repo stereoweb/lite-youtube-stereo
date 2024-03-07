@@ -51,6 +51,10 @@ export class LiteYTEmbed extends HTMLElement {
     this.setAttribute('videoid', id);
   }
 
+  set poster(poster: string) {
+    this.setAttribute('poster', poster);
+  }
+
   get customCss(): string {
     return this.getAttribute('customcss') || '';
   }
@@ -119,6 +123,12 @@ export class LiteYTEmbed extends HTMLElement {
    */
   private setupDom(): void {
     const shadowDom = this.attachShadow({ mode: 'open' });
+    const poster = this.poster;
+
+    if(poster){
+      shadowDom.querySelector('img')?.setAttribute('src', poster);
+    }
+
     const css = this.customCss;
     let nonce = '';
     if (window.liteYouTubeNonce) {
