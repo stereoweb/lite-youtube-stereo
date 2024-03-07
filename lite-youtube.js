@@ -19,6 +19,9 @@ export class LiteYTEmbed extends HTMLElement {
     set videoId(id) {
         this.setAttribute('videoid', id);
     }
+    get poster() {
+        return this.getAttribute('poster') || '';
+    }
     set poster(poster) {
         this.setAttribute('poster', poster);
     }
@@ -70,10 +73,6 @@ export class LiteYTEmbed extends HTMLElement {
     }
     setupDom() {
         const shadowDom = this.attachShadow({ mode: 'open' });
-        const poster = this.poster;
-        if (poster) {
-            shadowDom.querySelector('img')?.setAttribute('src', poster);
-        }
         const css = this.customCss;
         let nonce = '';
         if (window.liteYouTubeNonce) {
@@ -169,7 +168,6 @@ export class LiteYTEmbed extends HTMLElement {
         this.domRefFrame = shadowDom.querySelector('#frame');
         this.domRefImg = {
             fallback: shadowDom.querySelector('#fallbackPlaceholder'),
-            webp: shadowDom.querySelector('#webpPlaceholder'),
             jpeg: shadowDom.querySelector('#jpegPlaceholder'),
         };
         this.domRefPlayButton = shadowDom.querySelector('#playButton');

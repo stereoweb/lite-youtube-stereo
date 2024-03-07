@@ -19,7 +19,7 @@ export class LiteYTEmbed extends HTMLElement {
   private domRefFrame!: HTMLDivElement;
   private domRefImg!: {
     fallback: HTMLImageElement;
-    webp: HTMLSourceElement;
+    //webp: HTMLSourceElement;
     jpeg: HTMLSourceElement;
   };
   private domRefPlayButton!: HTMLButtonElement;
@@ -50,9 +50,9 @@ export class LiteYTEmbed extends HTMLElement {
   set videoId(id: string) {
     this.setAttribute('videoid', id);
   }
-  
+
   get poster() {
-        return this.getAttribute('poster') || '';
+    return this.getAttribute('poster') || '';
   
   }
   set poster(poster: string) {
@@ -127,11 +127,11 @@ export class LiteYTEmbed extends HTMLElement {
    */
   private setupDom(): void {
     const shadowDom = this.attachShadow({ mode: 'open' });
-    const poster = this.poster;
+    // const poster = this.poster;
 
-    if(poster){
-      shadowDom.querySelector('img')?.setAttribute('src', poster);
-    }
+    // if(poster){
+    //   shadowDom.querySelector('img')?.setAttribute('src', poster);
+    // }
 
     const css = this.customCss;
     let nonce = '';
@@ -228,7 +228,7 @@ export class LiteYTEmbed extends HTMLElement {
     this.domRefFrame = shadowDom.querySelector<HTMLDivElement>('#frame')!;
     this.domRefImg = {
       fallback: shadowDom.querySelector('#fallbackPlaceholder')!,
-      webp: shadowDom.querySelector('#webpPlaceholder')!,
+      //webp: shadowDom.querySelector('#webpPlaceholder')!,
       jpeg: shadowDom.querySelector('#jpegPlaceholder')!,
     };
     this.domRefPlayButton = shadowDom.querySelector('#playButton')!;

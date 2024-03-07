@@ -10,6 +10,7 @@ export declare class LiteYTEmbed extends HTMLElement {
     connectedCallback(): void;
     get videoId(): string;
     set videoId(id: string);
+    get poster(): string;
     set poster(poster: string);
     get customCss(): string;
     set customCss(css: string);
