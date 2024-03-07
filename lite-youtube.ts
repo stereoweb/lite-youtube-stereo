@@ -50,7 +50,11 @@ export class LiteYTEmbed extends HTMLElement {
   set videoId(id: string) {
     this.setAttribute('videoid', id);
   }
-
+  
+  get poster() {
+        return this.getAttribute('poster') || '';
+  
+  }
   set poster(poster: string) {
     this.setAttribute('poster', poster);
   }
