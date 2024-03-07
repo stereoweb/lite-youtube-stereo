@@ -227,10 +227,8 @@ export class LiteYTEmbed extends HTMLElement {
         }
     }
     initImagePlaceholder() {
-        const posterUrlWebp = `https://i.ytimg.com/vi_webp/${this.videoId}/${this.posterQuality}.webp`;
-        const posterUrlJpeg = `https://i.ytimg.com/vi/${this.videoId}/${this.posterQuality}.jpg`;
+        const posterUrlJpeg = `${this.poster}`;
         this.domRefImg.fallback.loading = this.posterLoading;
-        this.domRefImg.webp.srcset = posterUrlWebp;
         this.domRefImg.jpeg.srcset = posterUrlJpeg;
         this.domRefImg.fallback.src = posterUrlJpeg;
         this.domRefImg.fallback.setAttribute('aria-label', `${this.videoPlay}: ${this.videoTitle}`);
